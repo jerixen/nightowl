@@ -1,0 +1,32 @@
+---
+- name: Basic install, update, upgrade for pve nodes
+  user: jerixen
+  become: False
+  vars:
+    ansible_become_password: "{{supersecret_pass}}"
+  hosts: pve_nodes
+  gather_facts: true
+  vars_files:
+    - secrets.yml
+  roles:
+    - { role: base }
+    - { role: ssh-base }
+  tags:
+    - base
+    - ssh-base
+
+- name: Setup sanoid snapshots for erixen-pve
+  user: jerixen
+  vars:
+    ansible_become_password: "{{supersecret_pass}}"
+  hosts: erixen-pve.rdk.erixen.info
+  become: False
+  gather_facts: True
+  vars_files:
+    - secrets.yml
+  roles:
+    - { role: sanoid }
+  tags:
+    - smb
+    - sanoid
+    - zfs
