@@ -1,0 +1,42 @@
+---
+- name: Install all apt packages
+  become: True
+  apt:
+    pkg: "{{ common.packages }}"
+    force_apt_get: yes
+
+- name: Upgrade all apt packages
+  become: True
+  apt:
+    upgrade: dist
+    force_apt_get: yes
+
+- name: Define groups for user
+  become: True
+  user:
+    name: "{{ansible_env.USER}}"
+    groups:
+      - "{{ansible_env.USER}}"
+      - sudo
+    append: True
+    uid: 1000
+  notify: Reboot Machine
+
+- name: Create directories if they do not exist
+  become: True
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0775
+  loop: "{{ common.directories }}"
+
+- name: Copy unattended upgrades config
+  become: True
+  copy:
+    src: unattended-upgrades-config
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    owner: root
+    group: root
+    mode: 0776
+
+

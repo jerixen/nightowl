@@ -1,0 +1,5 @@
+---
+- name: Reboot Machine
+  become: True
+  reboot: 
+    reboot_timeout: 3600

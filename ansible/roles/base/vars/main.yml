@@ -1,0 +1,12 @@
+common:
+  packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - rsync
+    - net-tools
+    - htop
+    - unattended-upgrades
+  directories:
+    - /opt/
