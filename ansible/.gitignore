@@ -1,0 +1,8 @@
+vault_pass
+*/vault_pass
+
+*/secrets.yml
+secrets.yml
+
+*.log
+**/*.log
