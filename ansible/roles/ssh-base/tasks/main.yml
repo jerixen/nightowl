@@ -1,0 +1,21 @@
+---
+- name: Set authorized key taken from file
+  authorized_key:
+    user: "{{ansible_env.USER}}"
+    state: present
+    key: "{{ lookup('file', 'authorized_keys') }}"
+
+- name: Set authorized key for user {{ansible_env.USER}} copying it from current user
+  authorized_key:
+    user: "{{ansible_env.USER}}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+
+- name: Disable SSH password authentication
+  become: true
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^#?\s*PasswordAuthentication\s'
+    line: 'PasswordAuthentication no'
+    state: present
+  notify: Restart SSH Deamon

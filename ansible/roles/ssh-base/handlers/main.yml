@@ -1,0 +1,6 @@
+---
+- name: Restart SSH Deamon
+  become: True
+  service:
+    name: ssh
+    state: restarted
