@@ -1,0 +1,15 @@
+# Ansible Inventory File
+
+[virtual_machines]
+erixen-pihole
+erixen-storage
+# 10.1.50.11
+
+[pve_nodes]
+erixen-pve
+erixen-nuc-pve
+
+[all]
+10.1.50.8
+10.1.50.12
+
