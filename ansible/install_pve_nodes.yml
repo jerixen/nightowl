@@ -1,3 +1,4 @@
+#code: language=ansible
 ---
 - name: Basic install, update, upgrade for pve nodes
   user: jerixen
@@ -27,6 +28,5 @@
   roles:
     - { role: sanoid }
   tags:
-    - smb
     - sanoid
     - zfs
