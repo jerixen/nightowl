@@ -5,9 +5,16 @@ erixen-pihole
 erixen-storage
 # 10.1.50.11
 
+[dns_servers]
+# 10.1.50.8
+# 10.1.50.9
+
+[proxies]
+10.1.50.7
+
 [pve_nodes]
-erixen-pve
-erixen-nuc-pve
+erixen-pve.rdk.erixen.info
+erixen-nuc-pve.rdk.erixen.info
 
 [all]
 10.1.50.8
