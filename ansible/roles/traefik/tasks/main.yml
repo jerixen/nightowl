@@ -1,10 +1,8 @@
+# code: language=ansible
 ---
-- name: Include my vars
-  ansible.builtin.include_vars: /home/brian/dev/my-data/ansible_vars.yml
-
 - name: Install Traefik
   ansible.builtin.unarchive:
-    src: https://github.com/traefik/traefik/releases/download/v3.3.3/traefik_v3.3.3_linux_amd64.tar.gz
+    src: "https://github.com/traefik/traefik/releases/download/v{{ traefik_release }}/traefik_v{{ traefik_release }}_linux_amd64.tar.gz"
     dest: /usr/local/bin
     remote_src: true
   notify:
@@ -36,6 +34,20 @@
     mode: "0755"
   notify:
     - Restart Traefik
+
+- name: Make sure CloudFlare API email is in .bashrc file of root
+  become: true
+  ansible.builtin.lineinfile:
+    path: /root/.bashrc
+    regexp: "^CF_API_EMAIL="
+    line: "CF_API_EMAIL=\"{{ CF_API_EMAIL }}\""
+
+- name: Make sure CloudFlare API token is in .bashrc file of root
+  become: true
+  ansible.builtin.lineinfile:
+    path: /root/.bashrc
+    regexp: "^CF_DNS_API_TOKEN="
+    line: "CF_DNS_API_TOKEN=\"{{ CF_DNS_API_TOKEN }}\""
 
 - name: Create Traefik config file
   ansible.builtin.template:

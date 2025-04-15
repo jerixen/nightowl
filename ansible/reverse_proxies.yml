@@ -1,0 +1,32 @@
+#code: language=ansible
+---
+- name: Base
+  become: True
+  vars:
+    ansible_become_password: "{{proxy_01_root_password}}"
+  hosts: proxies
+  gather_facts: true
+  vars_files:
+    - secrets.yml
+  roles:
+    - { role: ssh-base }
+  tags:
+    - base
+    - ssh
+
+- name: Traefik
+  become: True
+  vars:
+    traefik_release: "3.3.5" # See https://github.com/traefik/traefik/releases
+    ansible_become_password: "{{proxy_01_root_password}}"
+    CF_API_EMAIL: "{{acme_email}}"
+    CF_DNS_API_TOKEN: "{{cf_dns_api_token}}"
+  hosts: proxies
+  gather_facts: true
+  vars_files:
+    - secrets.yml
+  roles:
+    - { role: traefik }
+  tags:
+    - proxy
+    - traefik
