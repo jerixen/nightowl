@@ -11,6 +11,7 @@ erixen-storage
 
 [proxies]
 10.1.50.7
+10.1.50.13
 
 [pve_nodes]
 erixen-pve.rdk.erixen.info
