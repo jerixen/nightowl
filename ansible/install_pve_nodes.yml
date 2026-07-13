@@ -15,18 +15,3 @@
   tags:
     - base
     - ssh-base
-
-- name: Setup sanoid snapshots for erixen-pve
-  user: jerixen
-  vars:
-    ansible_become_password: "{{supersecret_pass}}"
-  hosts: erixen-pve.rdk.erixen.info
-  become: False
-  gather_facts: True
-  vars_files:
-    - secrets.yml
-  roles:
-    - { role: sanoid }
-  tags:
-    - sanoid
-    - zfs

@@ -1,0 +1,8 @@
+- name: Copy paperless_backups
+  become: True
+  copy:
+    src: unattended-upgrades-config
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    owner: root
+    group: root
+    mode: 0776

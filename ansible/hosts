@@ -1,23 +1,8 @@
 # Ansible Inventory File
 
-[virtual_machines]
-erixen-pihole
-erixen-storage
-# 10.1.50.11
 
-[dns_servers]
-# 10.1.50.8
-# 10.1.50.9
-
-[proxies]
-10.1.50.7
-10.1.50.13
+citadel.rdk.erixen.info
 
 [pve_nodes]
-erixen-pve.rdk.erixen.info
 erixen-nuc-pve.rdk.erixen.info
-
-[all]
-10.1.50.8
-10.1.50.12
 
