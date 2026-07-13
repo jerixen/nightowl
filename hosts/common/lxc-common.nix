@@ -42,6 +42,7 @@
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzBM4HWTwLn7Toeetj0KA1kNmZOQeZN4eANvVDR3hRN jerixen@tjuppetutt"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM1pf9cxPH2BblbzUd298DJJXfkpZBpws6wQIPcMicDq jerixen@blackbox"
     ];
     # Generate with `mkpasswd -m yescrypt` and put the resulting hash in this
     # file (root:root, mode 600) on the host - never commit the hash to git.
