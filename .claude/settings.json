@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nix eval *)",
+      "Bash(nix flake show*)",
+      "Bash(nix flake check*)",
+      "Bash(nix develop*)",
+      "Bash(ansible --version)",
+      "Bash(ansible-playbook --list-tasks *)",
+      "Bash(ansible-playbook --list-hosts *)",
+      "Bash(ansible-vault view *)",
+      "Bash(find * -name '*.nix')",
+      "Bash(grep * hosts/)",
+      "Bash(xargs -I{} sh -c 'echo ==={}===; cat {}')"
+    ]
+  }
+}
