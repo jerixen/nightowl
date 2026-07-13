@@ -1,0 +1,22 @@
+#!/bin/zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+# this is a test
+## Prompt
+source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+setopt PROMPT_SUBST
+PROMPT='%F{135}%n%f at %F{166}%m%f in %F{118}%~%f$(__git_ps1 " (%s)")
+$ '
+
+. "$HOME/.local/bin/env"
+
+. "$HOME/.zsh_aliases"
+
+eval "$(zoxide init --cmd cd zsh)"
+
+eval "$(starship init zsh)"

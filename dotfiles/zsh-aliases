@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/zsh
 
 # Use eza instead of ls
 alias l='eza -lbF --git  --sort=type'
@@ -8,5 +8,7 @@ alias llm='eza -lbGd --git --sort=modified'
 alias ls='eza --sort=type'
 alias lx='eza -lbhHigUmuSa@ --sort=type  --time-style=long-iso --git --color-scale'
 
+alias ss='git status'
+
 # Use bat instead of cat
-alias cat='bat --paging=never'
+alias cat="bat --paging=never"
