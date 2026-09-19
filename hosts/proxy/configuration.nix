@@ -54,6 +54,41 @@
         dns cloudflare {env.CLOUDFLARE_API_TOKEN}
       }
     '';
+
+    virtualHosts."truenas.rdk.erixen.info".extraConfig = ''
+      reverse_proxy http://10.1.50.10:81
+      tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+      }
+    '';
+
+    virtualHosts."paperless.rdk.erixen.info".extraConfig = ''
+      reverse_proxy http://10.1.50.10:30070
+      tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+      }
+    '';
+
+    virtualHosts."scrutiny.rdk.erixen.info".extraConfig = ''
+      reverse_proxy http://10.1.50.10:31054
+      tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+      }
+    '';
+
+    virtualHosts."jellyfin.rdk.erixen.info".extraConfig = ''
+      reverse_proxy http://10.1.50.10:8096
+      tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+      }
+    '';
+
+    virtualHosts."nextcloud.rdk.erixen.info".extraConfig = ''
+      reverse_proxy http://10.1.50.10:30027
+      tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+      }
+    '';
   };
 
   # Keep the Cloudflare token out of the nix store/git: create this file by
