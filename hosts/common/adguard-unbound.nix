@@ -224,7 +224,7 @@
           # exact-match entries above instead of losing to them. Pointing
           # straight at citadel's IP keeps this an A rewrite so the normal
           # exact-beats-wildcard ordering applies.
-          { domain = "*.rdk.erixen.info"; answer = "10.1.50.10"; enabled = true; }
+          { domain = "*.rdk.erixen.info"; answer = "10.1.50.4"; enabled = true; }
         ];
 
         safe_fs_patterns = [ "/var/lib/private/AdGuardHome/userfilters/*" ];
