@@ -27,7 +27,7 @@
       # The first build will fail with a hash mismatch; paste the "got:
       # sha256-..." value from that error here. Check
       # https://github.com/caddy-dns/cloudflare/tags for newer plugin tags.
-      hash = "sha256-hEHgAG0F0ozHRAPuxEqLyTATBrE+pajeXDiSNwniorg=";
+      hash = "sha256-xRJ5evsAJ2akg47j3Bt6YDXJOgX88B/rKNP50KSVyNY=";
     };
 
     virtualHosts."proxmox.rdk.erixen.info".extraConfig = ''
